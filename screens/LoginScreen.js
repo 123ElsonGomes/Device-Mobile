@@ -1,63 +1,53 @@
-import react, { useEffect }  from "react";
-import { View, Text, Button, StyleSheet, TextInput } from "react-native";
+import React from "react";
+import {View, Text, Button, TextInput, StyleSheet} from "react-native";
 
 
-
-export default function LoginScreen({navigation}) {
-
-    const [username, setUsername] = react.useState('');
-    const [password, setPassword] = react.useState('');
-    
-
-    return (
+export default function LoginScreen({navigation}){
+    const [username, setUsername] = React.useState('');
+    const [password, setPassword] = React.useState('');
+    return(
         <View style={styles.container}>
-            <Text style={styles.title}>Login</Text>
+            <Text style={styles.title}>WELCOME</Text>
 
             <TextInput
-                style={styles.input}
-                placeholder="User"
-                value={username}
-                onChangeText={setUsername}
-                autoCapitalize="none"
+            placeholder="User Name"
+            value={username}
+            onChangeText={setUsername}
+            autoCapitalize="none"
+            style={styles.input}
             />
 
             <TextInput
-            style={styles.input}
             placeholder="Password"
             value={password}
-            onChange={setPassword}
-            secureTextEntry
-            />
-            
-
-            <Button 
-                title="To Go In"   
-                onPress={() => alert('Login Clicked!')}
+            onChangeText={setPassword}
+            secureTextEntry = {true}
+            style={styles.input}
             />
 
-            <Text 
-                style={styles.link}
-                onPress={()=> navigation.navigate('Register')}
-            > 
-            Don't have an account? Register!
-            </Text>
-
+            <Button title="login" onPress={() =>navigation.navigate('Register')}/>
         </View>
-
     );
 }
 
 const styles = StyleSheet.create({
     container: {
         flex: 1,
+        backgroundColor: '#201212ff',
         justifyContent: 'center',
         alignItems: 'center',
+        padding: 50
     },
     title:{
-        fontSize: 24,
-        marginBottom: 20,
+        fontSize: 30,
+        color: '#d8b6b6ff',
+        marginBottom: 50
     },
-    input: {
-
-    }
+    input:{
+        borderColor:'#575b80ff',
+        borderWidth:1,
+        width: '100%',
+        borderRadius: 10,
+        marginBottom:15,
+    },
 });
